@@ -20,4 +20,5 @@ class Settings(PostgresSettings, DjangoSettings):
     class Config:
         env_file = '.env'
 
+
 settings = Settings()

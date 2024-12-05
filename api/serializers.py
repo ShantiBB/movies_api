@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from djoser.serializers import UserSerializer
 from rest_framework.exceptions import ValidationError
 
 from movie.models import Movie, FavoriteMovie
@@ -10,8 +9,8 @@ User = get_user_model()
 
 class MovieSerializerList(serializers.ModelSerializer):
     author = serializers.CharField(source='author.username', read_only=True)
-
     is_favorite = serializers.SerializerMethodField()
+
     class Meta:
         model = Movie
         fields = (
